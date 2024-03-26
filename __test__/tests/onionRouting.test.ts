@@ -20,6 +20,8 @@ import {
   symDecrypt,
   symEncrypt,
 } from "../../src/crypto";
+import crypto from "crypto";
+import {restNodeRegistry} from "../../src/registry/registry";
 const { validateEncryption } = require("./utils");
 
 const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
@@ -37,7 +39,7 @@ async function closeAllServers(
       })
     )
   );
-
+  restNodeRegistry();
   await delay(100);
 }
 
